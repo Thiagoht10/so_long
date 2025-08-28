@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 19:17:25 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/27 19:45:39 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/27 22:20:39 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*ft_strjoin_modified(char *s1, char const *s2)
 
 	a = 0;
 	b = 0;
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
+	len1 = ft_strlen_modified(s1);
+	len2 = ft_strlen_modified(s2);
 	res = malloc(len1 + len2 + 1);
 	if (!res)
 		return (free(s1), NULL);
@@ -61,7 +61,7 @@ char	*ft_strjoin_modified(char *s1, char const *s2)
 }
 
 /* Conta o tamanho do buffer e da linha para formar o malloc corretamente */
-size_t	ft_strlen(char const *s)
+size_t	ft_strlen_modified(char const *s)
 {
 	size_t	a;
 
@@ -104,7 +104,7 @@ int	build_line(char *buffer, char **line, int fd)
 			return (0);
 		buffer[bytes] = '\0';
 	}
-	*line = ft_strjoin(*line, buffer);
+	*line = ft_strjoin_modified(*line, buffer);
 	if (!*line)
 		return (2);
 	return (1);

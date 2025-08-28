@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:23:38 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/27 19:49:54 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/27 22:20:50 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void				ft_lstiter(t_list *list, void (*f)(void *));
 int					ft_lstsize(t_list *lst);
 char				*get_next_line(int fd);
 void				found_rest(char *buffer);
-size_t				ft_strlen(char const *s);
+size_t				ft_strlen_modified(char const *s);
 int					newline(char *s);
 char				*ft_strjoin_modified(char *s1, char const *s2);
 int					build_line(char *buffer, char **line, int fd);

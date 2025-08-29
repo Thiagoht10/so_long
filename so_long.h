@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/28 05:57:39 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/29 05:42:59 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 #define SO_LONG_H
 
 #include "libft/libft.h"
+
+typedef struct s_data
+{
+    int player;
+    int collectibles;
+    int exit;
+    int size;
+    int len;
+    int i;
+    int j;
+}       t_data;
+
 
 //#define malloc(x) (NULL)
 
@@ -25,4 +37,7 @@ void    double_pointer_error(int fd, char **map, char *line);
 int    safe_open(void);
 int check_format(char **map);
 int check_wall(char **map);
+int check_items(char **map);
+void    inits_check_items(t_data *data);
+void    find_player(char **map, int coordinates[2]);
 #endif

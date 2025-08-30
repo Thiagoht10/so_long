@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:14:51 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/30 23:41:29 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 00:33:36 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	ft_strlen_new(const char *str)
 	return (i);
 }
 
-int	count_lines_file(char **argv)
+int	count_lines_fd(char **argv)
 {
 	int		fd;
 	int		count_line;
@@ -88,7 +88,7 @@ char	**make_map(char **argv)
 
 	i = 0;
 	fd = safe_open(argv);
-	size = count_lines_file(argv);
+	size = count_lines_fd(argv);
 	map = malloc((size + 1) * sizeof(char *));
 	if (!map)
 		return (close(fd), NULL);

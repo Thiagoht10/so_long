@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/30 23:56:34 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 00:33:33 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_data
 # define TRUE 1
 # define FALSE 0
 
-int		count_lines_file(char **argv);
+int		count_lines_fd(char **argv);
 char	*get_line(int fd);
 char	**make_map(char **argv);
 void	free_all_arr(char **arr);

@@ -6,7 +6,7 @@
 #    By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 18:08:12 by thde-sou          #+#    #+#              #
-#    Updated: 2025/08/31 05:38:47 by thde-sou         ###   ########.fr        #
+#    Updated: 2025/08/31 17:45:37 by thde-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ MLX = $(MLX_DIR)/libmlx.a
 
 LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 
-SRC = src/so_long.c src/map/assemble_map.c src/error.c src/map/check_map.c \
-src/map/check_map_utils.c src/map/map_error.c src/map/check_map_extra.c \
-src/render/open_window.c
+SRC = so_long.c assemble_map.c error.c check_map.c \
+check_map_utils.c map_error.c check_map_extra.c \
+open_window.c render_utils.c
 
 OBJ = $(SRC:.c=.o)
 

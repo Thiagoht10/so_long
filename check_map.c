@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 05:20:04 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 05:12:22 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:41:25 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
 
 int	check_format(char **map)
 {

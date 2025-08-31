@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 04:47:56 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 05:12:24 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:41:18 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
 
 void	inits_check_items(t_data *data)
 {

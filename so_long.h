@@ -6,15 +6,15 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 05:37:41 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:44:38 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
+# include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
 
 typedef struct s_data
 {
@@ -31,6 +31,22 @@ typedef struct s_data
 	int	i;
 	int	j;
 }		t_data;
+
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+	char	**map;
+	int		width;
+	int		height;
+	void    *img_wall;
+	void    *img_floor;
+	void    *img_collect;
+	void    *img_player;
+	void    *img_exit;
+	int   img_w;
+    int   img_h;
+}			t_game;
 
 //#define malloc(x) (NULL)
 
@@ -61,6 +77,11 @@ int check_valid_items(char **map);
 void    valid_items_error(void);
 int count_map_lines(char **map);
 char    **copy_map(char **map);
-void    calculate_window(char **map, int *pixel_x, int *pixel_y);
-void    open_window(char **map);
+void    open_window(t_game *game);
+t_game *creat_stack_game(void);
+int    inits_stack_game(char **map, t_game *game);
+void    free_stack_game(t_game *game);
+int   upload_image(t_game *game);
+void    draw_screen(t_game *game);
+
 #endif

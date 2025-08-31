@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:14:51 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 05:11:28 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:40:33 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "so_long.h"
 
 void	free_all_arr(char **arr)
 {

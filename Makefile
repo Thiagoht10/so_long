@@ -24,6 +24,9 @@ SRC = so_long.c assemble_map.c error.c check_map.c check_map_utils.c map_error.c
 
 OBJ = $(SRC:.c=.o)
 
+# Objects without the program entry (main)
+CORE_OBJ = $(filter-out so_long.o,$(OBJ))
+
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
@@ -47,3 +50,13 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus clean fclean re leak
+
+# Unit test binary
+UNIT_DIR = tests
+UNIT_BIN = $(UNIT_DIR)/unit_tests
+UNIT_SRC = $(UNIT_DIR)/unit_tests.c
+
+unit: $(LIBFT) $(CORE_OBJ) $(UNIT_SRC)
+	$(CC) $(FLAGS) $(UNIT_SRC) $(CORE_OBJ) $(LIBFT) -o $(UNIT_BIN)
+
+tests: unit

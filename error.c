@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 04:57:47 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/30 22:38:06 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 01:15:45 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	double_pointer_error(int fd, char **map, char *line)
 	close(fd);
 	free_all_arr(map);
 	free(line);
-	return ;
 }
 
 int	safe_open(char **argv)

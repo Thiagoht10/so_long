@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 00:33:33 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 01:28:02 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_data
 {
     char    **map;
 	char	*items;
+	char	*line;
+	int		fd;
 	int	player;
 	int	collectibles;
     int coordinates[2];

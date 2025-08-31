@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:14:51 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 00:33:36 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 01:30:41 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,29 +80,27 @@ char	*get_line(int fd)
 
 char	**make_map(char **argv)
 {
-	char	**map;
-	char	*line;
-	int		size;
-	int		fd;
-	int		i;
+	t_data data;
 
-	i = 0;
-	fd = safe_open(argv);
-	size = count_lines_fd(argv);
-	map = malloc((size + 1) * sizeof(char *));
-	if (!map)
-		return (close(fd), NULL);
-	while (i < size)
+	data.i = 0;
+	data.fd = safe_open(argv);
+	data.size = count_lines_fd(argv);
+	if(data.size < 3)
+		return (format_error(), NULL);
+	data.map = malloc((data.size + 1) * sizeof(char *));
+	if (!data.map)
+		return (close(data.fd), NULL);
+	while (data.i < data.size)
 	{
-		line = get_line(fd);
-		map[i] = malloc((ft_strlen(line) + 1) * sizeof(char));
-		if (!map[i])
-			double_pointer_error(fd, map, line);
-		ft_strlcpy(map[i], line, ft_strlen(line) + 1);
-		free(line);
-		i++;
+		data.line = get_line(data.fd);
+		data.map[data.i] = malloc((ft_strlen(data.line) + 1) * sizeof(char));
+		if (!data.map[data.i])
+			return (double_pointer_error(data.fd, data.map, data.line), NULL);
+		ft_strlcpy(data.map[data.i], data.line, ft_strlen(data.line) + 1);
+		free(data.line);
+		data.i++;
 	}
-	map[size] = NULL;
-	close(fd);
-	return (map);
+	data.map[data.size] = NULL;
+	close(data.fd);
+	return (data.map);
 }

@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 05:10:56 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 05:37:41 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,6 @@ int check_valid_items(char **map);
 void    valid_items_error(void);
 int count_map_lines(char **map);
 char    **copy_map(char **map);
+void    calculate_window(char **map, int *pixel_x, int *pixel_y);
+void    open_window(char **map);
 #endif

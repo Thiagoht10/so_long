@@ -6,14 +6,15 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 01:28:02 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 05:10:56 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 
 typedef struct s_data
 {

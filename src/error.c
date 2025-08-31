@@ -1,28 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 18:38:46 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 00:46:21 by thde-sou         ###   ########.fr       */
+/*   Created: 2025/08/28 04:57:47 by thde-sou          #+#    #+#             */
+/*   Updated: 2025/08/31 05:13:01 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
-int	main(int argc, char **argv)
+void	double_pointer_error(int fd, char **map, char *line)
 {
-	char	**map;
-
-	if(argc != 2)
-		return (put_error(""), -1);
-	map = make_map(argv);
-	if (!map)
-		return (0);
-	if(!check_map(map))
-		return (free_all_arr(map), -1);
+	close(fd);
 	free_all_arr(map);
-	return (0);
+	free(line);
+}
+
+int	safe_open(char **argv)
+{
+	int	fd;
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+	{
+		perror("open");
+		exit(127);
+	}
+	return (fd);
+}
+
+void    put_error(char *str)
+{
+    int i;
+
+    i = 0;
+    write(1, "Error\n", 6);
+    while(str[i])
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
 }

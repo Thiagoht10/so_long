@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 00:04:10 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/30 20:49:07 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 05:12:19 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/so_long.h"
 
 void    format_error(void)
 {

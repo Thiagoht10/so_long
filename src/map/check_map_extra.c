@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:22:58 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 00:04:48 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/08/31 05:12:26 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/so_long.h"
 
 void    walk_path(t_data *data, int y, int x)
 {

@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 04:57:47 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 17:41:34 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/06 00:19:28 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	double_pointer_error(int fd, char **map, char *line)
 {

@@ -6,11 +6,11 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 15:05:42 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/08/31 17:42:05 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/06 00:19:08 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../so_long.h"
 
 t_game *creat_stack_game(void)
 {

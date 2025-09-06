@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 04:57:47 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 00:19:28 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/06 23:03:00 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int	safe_open(char **argv)
 	return (fd);
 }
 
-void    put_error(char *str)
+void	put_error(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    write(1, "Error\n", 6);
-    while(str[i])
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
+	i = 0;
+	write(1, "Error\n", 6);
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }

@@ -20,58 +20,57 @@ void	inits_check_items(t_data *data)
 	data->i = 0;
 }
 
-int check_leftover_items(char **map)
+int	check_leftover_items(char **map)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    while(map[i])
-    {
-        j = 0;
-        while(map[i][j])
-        {
-            if(map[i][j] == 'C' || map[i][j] == 'E')
-                return (FALSE);
-            j++;
-        }
-        i++;
-    }
-    return (TRUE);
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C' || map[i][j] == 'E')
+				return (FALSE);
+			j++;
+		}
+		i++;
+	}
+	return (TRUE);
 }
 
-int count_map_lines(char **map)
+int	count_map_lines(char **map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(map[i])
-        i++;
-    return (i);
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
 }
 
-char    **copy_map(char **map)
+char	**copy_map(char **map)
 {
-    char    **result;
-    int size;
-    int i;
+	char	**result;
+	int		size;
+	int		i;
 
-    size = count_map_lines(map);
-    result = malloc((size + 1) * sizeof(char*));
-    if(!result)
-        return (NULL);
-    i = 0;
-    while (i < size)
-    {
-        result[i] = ft_strdup(map[i]);
-        if(!result[i])
-        {
-            free_all_arr(result);
-            return (NULL);
-        }
-        i++;
-    }
-    result[size] = NULL;
-    return (result);
+	size = count_map_lines(map);
+	result = malloc((size + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		result[i] = ft_strdup(map[i]);
+		if (!result[i])
+		{
+			free_all_arr(result);
+			return (NULL);
+		}
+		i++;
+	}
+	result[size] = NULL;
+	return (result);
 }
-

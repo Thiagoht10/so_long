@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 05:23:46 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 19:23:31 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/06 22:56:01 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int	upload_image(t_game *game)
 			&tile, &tile);
 	game->img_open_exit = mlx_xpm_file_to_image(game->mlx,
 			"textures/open_exit_48.xpm", &tile, &tile);
-    game->img_player_on_exit = mlx_xpm_file_to_image(game->mlx, "textures/player_on_exit_48.xpm", &tile, &tile);
+	game->img_player_on_exit = mlx_xpm_file_to_image(game->mlx,
+			"textures/player_on_exit_48.xpm", &tile, &tile);
 	if (!game->img_floor || !game->img_wall || !game->img_player
 		|| !game->img_collect || !game->img_exit || !game->img_open_exit
-        || !game->img_player_on_exit)
+		|| !game->img_player_on_exit)
 		return (FALSE);
 	return (TRUE);
 }
@@ -48,7 +49,7 @@ void	draw_screen(t_game *game)
 	while (game->map[y])
 	{
 		x = 0;
-        aux_draw_screen(game, y, &x, tile);
+		aux_draw_screen(game, y, &x, tile);
 		y++;
 	}
 }
@@ -57,8 +58,9 @@ void	open_window(t_game *game)
 {
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->width, game->height, "So_long");
+	mlx_hook(game->win, ON_DESTROY, 0, close_game, game);
 	if (upload_image(game))
 		draw_screen(game);
-    mlx_key_hook(game->win, handle_key, game);
+	mlx_key_hook(game->win, handle_key, game);
 	mlx_loop(game->mlx);
 }

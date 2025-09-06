@@ -109,22 +109,22 @@ int	find_player(char **map, int coordinates[2])
 	return (FALSE);
 }
 
-int check_path(char **map)
+int	check_path(char **map)
 {
-    t_data data;
+	t_data	data;
 
-    data.map = copy_map(map);
+	data.map = copy_map(map);
 	if (!data.map)
 		return (-1);
-    data.size = count_map_lines(map);
-    data.len = ft_strlen(data.map[0]);
-    find_player(data.map, data.coordinates);
-    walk_path(&data, data.coordinates[0], data.coordinates[1]);
-    if(check_leftover_items(data.map))
-    {
-        free_all_arr(data.map);
-        return (TRUE);
-    }
-    free_all_arr(data.map);
-    return (path_error(), FALSE);
+	data.size = count_map_lines(map);
+	data.len = ft_strlen(data.map[0]);
+	find_player(data.map, data.coordinates);
+	walk_path(&data, data.coordinates[0], data.coordinates[1]);
+	if (check_leftover_items(data.map))
+	{
+		free_all_arr(data.map);
+		return (TRUE);
+	}
+	free_all_arr(data.map);
+	return (path_error(), FALSE);
 }

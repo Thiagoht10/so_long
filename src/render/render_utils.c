@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 15:05:42 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 19:08:49 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/06 23:00:35 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	inits_stack_game(char **map, t_game *game)
 	game->height = count_map_lines(map) * tile;
 	game->width = ft_strlen(map[0]) * tile;
 	game->collectibles = count_collectibles(map);
-    game->player_on_exit = 0;
-    game->moves = 0;
+	game->player_on_exit = 0;
+	game->moves = 0;
 	game->map = copy_map(map);
 	if (!game->map)
 		return (FALSE);
@@ -45,6 +45,7 @@ void	free_stack_game(t_game *game)
 	if (!game)
 		return ;
 	free_all_arr(game->map);
+	free(game->mlx);
 	free(game);
 }
 
@@ -53,25 +54,25 @@ void	aux_draw_screen(t_game *game, int y, int *x, int tile)
 	while (game->map[y][*x])
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor, *x
-				* tile, y * tile);
+			* tile, y * tile);
 		if (game->map[y][*x] == '1')
 			mlx_put_image_to_window(game->mlx, game->win, game->img_wall, *x
-					* tile, y * tile);
+				* tile, y * tile);
 		if (game->map[y][*x] == 'P')
 			mlx_put_image_to_window(game->mlx, game->win, game->img_player, *x
-					* tile, y * tile);
+				* tile, y * tile);
 		if (game->map[y][*x] == 'C')
 			mlx_put_image_to_window(game->mlx, game->win, game->img_collect, *x
-					* tile, y * tile);
+				* tile, y * tile);
 		if (game->map[y][*x] == 'E' && game->collectibles == 0)
 			mlx_put_image_to_window(game->mlx, game->win, game->img_open_exit,
-					*x * tile, y * tile);
+				*x * tile, y * tile);
 		if (game->map[y][*x] == 'E' && game->collectibles > 0)
 			mlx_put_image_to_window(game->mlx, game->win, game->img_exit, *x
-					* tile, y * tile);
-		if(game->map[y][*x] == 'P' && game->player_on_exit == TRUE)
-			mlx_put_image_to_window(game->mlx, game->win, game->img_player_on_exit,
-					*x * tile, y * tile);
+				* tile, y * tile);
+		if (game->map[y][*x] == 'P' && game->player_on_exit == TRUE)
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->img_player_on_exit, *x * tile, y * tile);
 		(*x)++;
 	}
 }

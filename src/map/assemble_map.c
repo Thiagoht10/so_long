@@ -80,12 +80,12 @@ char	*get_line(int fd)
 
 char	**make_map(char **argv)
 {
-	t_data data;
+	t_data	data;
 
 	data.i = 0;
 	data.fd = safe_open(argv);
 	data.size = count_lines_fd(argv);
-	if(data.size < 3)
+	if (data.size < 3)
 		return (format_error(), NULL);
 	data.map = malloc((data.size + 1) * sizeof(char *));
 	if (!data.map)

@@ -6,7 +6,7 @@
 #    By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 18:08:12 by thde-sou          #+#    #+#              #
-#    Updated: 2025/09/06 23:06:53 by thde-sou         ###   ########.fr        #
+#    Updated: 2025/09/11 20:26:11 by thde-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,14 @@ src/events/events_utils.c
 
 OBJ = $(SRC:.c=.o)
 
-all: $(LIBFT) $(MLX) $(EXEC)
+all: $(LIBFT) $(MLX_DIR) $(EXEC)
+
+$(MLX_DIR):
+	git clone https://github.com/42paris/minilibx-linux.git
+	$(MAKE) -C $(MLX_DIR) all
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) bonus
-
-$(MLX):
-	$(MAKE) -C $(MLX_DIR)
 
 $(EXEC): $(OBJ) $(LIBFT) $(MLX)
 	$(CC) $(OBJ) $(LIBFT) $(LIBS) -o $(EXEC)
@@ -53,8 +54,9 @@ clean:
 
 fclean: clean
 	rm -f $(NAME) $(EXEC)
+	rm -rf $(MLX_DIR)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

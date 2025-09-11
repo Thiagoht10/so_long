@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 04:57:47 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 23:03:00 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/11 19:27:52 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int	safe_open(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
+		write(1, "Error\n", 6);
 		perror("open");
-		exit(127);
+		exit(EXIT_FAILURE);
 	}
 	return (fd);
 }

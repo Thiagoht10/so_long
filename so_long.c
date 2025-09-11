@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:38:46 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 21:02:22 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/11 19:40:36 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_game	*game;
 
 	if (argc != 2)
-		return (put_error(""), -1);
+		return (put_error("Wrong number of arguments\n"), -1);
 	map = make_map(argv);
 	if (!map)
 		return (0);

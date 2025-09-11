@@ -6,7 +6,7 @@
 #    By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 18:08:12 by thde-sou          #+#    #+#              #
-#    Updated: 2025/09/11 20:26:11 by thde-sou         ###   ########.fr        #
+#    Updated: 2025/09/11 20:36:56 by thde-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ OBJ = $(SRC:.c=.o)
 all: $(LIBFT) $(MLX_DIR) $(EXEC)
 
 $(MLX_DIR):
-	git clone https://github.com/42paris/minilibx-linux.git
-	$(MAKE) -C $(MLX_DIR) all
+	@git clone https://github.com/42paris/minilibx-linux.git
+	@$(MAKE) -C $(MLX_DIR) all
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) bonus
@@ -49,13 +49,12 @@ $(EXEC): $(OBJ) $(LIBFT) $(MLX)
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS) 
-	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(MLX_DIR) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME) $(EXEC)
 	rm -rf $(MLX_DIR)
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

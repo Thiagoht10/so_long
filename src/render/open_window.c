@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 05:23:46 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/12 19:59:14 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 21:17:02 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	open_window(t_game *game)
 	mlx_hook(game->win, ON_DESTROY, 0, close_game, game);
 	if (upload_image(game))
 		draw_screen(game);
+	draw_cointer(game);
 	mlx_key_hook(game->win, handle_key, game);
 	mlx_loop(game->mlx);
 }

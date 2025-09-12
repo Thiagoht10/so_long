@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:11:39 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/12 19:51:40 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 21:04:44 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,19 @@ void	draw_cointer(t_game *game)
 
 long	timestamp_ms(void)
 {
-	struct timeval	t;
+	struct timeval	time;
+	long			converter;
 
-	gettimeofday(&t, NULL);
-	return (t.tv_sec * 1000L + t.tv_usec / 1000L);
+	converter = 1000;
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * converter + time.tv_usec / converter);
 }
 
 int	loop_handler(t_game *game)
 {
 	if (game->player_on_exit)
 	{
-		if (timestamp_ms() - game->start_time >= 250)
+		if (timestamp_ms() - game->start_time >= 200)
 			close_game(game);
 	}
 	return (0);

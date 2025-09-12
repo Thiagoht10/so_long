@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 15:05:42 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 23:00:35 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:58:27 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,18 @@ void	aux_draw_screen(t_game *game, int y, int *x, int tile)
 		if (game->map[y][*x] == 'E' && game->collectibles > 0)
 			mlx_put_image_to_window(game->mlx, game->win, game->img_exit, *x
 				* tile, y * tile);
-		if (game->map[y][*x] == 'P' && game->player_on_exit == TRUE)
-			mlx_put_image_to_window(game->mlx, game->win,
-				game->img_player_on_exit, *x * tile, y * tile);
+		player_on_exit(game, y, *x, tile);
 		(*x)++;
 	}
+}
+
+void	player_on_exit(t_game *game, int y, int x, int tile)
+{
+	if (game->map[y][x] == 'P' && game->player_on_exit == TRUE)
+		mlx_put_image_to_window(game->mlx, game->win, game->img_player_on_exit,
+			x * tile, y * tile);
+	if (game->map[y][x] == 'P' && game->player_on_exit == TRUE
+		&& game->collectibles == 0)
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img_player_open_exit, x * tile, y * tile);
 }

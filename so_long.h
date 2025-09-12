@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 22:12:13 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:49:28 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "minilibx-linux/mlx.h"
+# include <sys/time.h>
 
 typedef struct s_data
 {
@@ -46,11 +47,13 @@ typedef struct s_game
 	void	*img_exit;
 	void	*img_open_exit;
 	void	*img_player_on_exit;
+	void	*img_player_open_exit;
 	int		img_w;
 	int		img_h;
 	int		collectibles;
 	int		moves;
 	int		player_on_exit;
+	long	start_time;
 }			t_game;
 
 # define TRUE 1
@@ -102,4 +105,11 @@ void		move_left(t_game *game);
 void		move_right(t_game *game);
 int			close_game(t_game *game);
 void		draw_cointer(t_game *game);
+void		player_on_exit(t_game *game, int y, int x, int tile);
+int			loop_handler(t_game *game);
+long		timestamp_ms(void);
+void		get_exit_right(t_game *game, int *coord);
+void		get_exit_down(t_game *game, int *coord);
+void		get_exit_left(t_game *game, int *coord);
+void		get_exit_up(t_game *game, int *coord);
 #endif

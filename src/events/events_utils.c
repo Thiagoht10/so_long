@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:11:39 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 22:11:44 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:51:40 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	close_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->img_player);
 	mlx_destroy_image(game->mlx, game->img_wall);
 	mlx_destroy_image(game->mlx, game->img_player_on_exit);
+	mlx_destroy_image(game->mlx, game->img_player_open_exit);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free_stack_game(game);
@@ -51,4 +52,22 @@ void	draw_cointer(t_game *game)
 	write(1, "\n", 1);
 	free(num);
 	free(msg);
+}
+
+long	timestamp_ms(void)
+{
+	struct timeval	t;
+
+	gettimeofday(&t, NULL);
+	return (t.tv_sec * 1000L + t.tv_usec / 1000L);
+}
+
+int	loop_handler(t_game *game)
+{
+	if (game->player_on_exit)
+	{
+		if (timestamp_ms() - game->start_time >= 250)
+			close_game(game);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 18:08:12 by thde-sou          #+#    #+#              #
-#    Updated: 2025/09/11 20:36:56 by thde-sou         ###   ########.fr        #
+#    Updated: 2025/09/12 19:29:37 by thde-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIBS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 SRC = so_long.c src/map/assemble_map.c src/error.c src/map/check_map.c \
 src/map/check_map_utils.c src/map/map_error.c src/map/check_map_extra.c \
 src/render/open_window.c src/render/render_utils.c src/utils.c src/events/move.c \
-src/events/events_utils.c
+src/events/events_utils.c src/events/exit_utils.c
 
 OBJ = $(SRC:.c=.o)
 

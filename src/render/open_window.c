@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 05:23:46 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 22:56:01 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:59:14 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ int	upload_image(t_game *game)
 			"textures/open_exit_48.xpm", &tile, &tile);
 	game->img_player_on_exit = mlx_xpm_file_to_image(game->mlx,
 			"textures/player_on_exit_48.xpm", &tile, &tile);
+	game->img_player_open_exit = mlx_xpm_file_to_image(game->mlx,
+			"textures/player_open_exit_48.xpm", &tile, &tile);
 	if (!game->img_floor || !game->img_wall || !game->img_player
 		|| !game->img_collect || !game->img_exit || !game->img_open_exit
-		|| !game->img_player_on_exit)
+		|| !game->img_player_on_exit || !game->img_player_open_exit)
 		return (FALSE);
 	return (TRUE);
 }

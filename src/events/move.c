@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 17:16:32 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 23:06:14 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/12 19:50:49 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	handle_key(int keycode, t_game *game)
 {
 	if (keycode == KEY_W)
 		move_up(game);
-	else if (keycode == 97)
+	else if (keycode == KEY_A)
 		move_left(game);
-	else if (keycode == 115)
+	else if (keycode == KEY_S)
 		move_down(game);
-	else if (keycode == 100)
+	else if (keycode == KEY_D)
 		move_right(game);
 	else if (keycode == KEY_ESC)
 		close_game(game);
@@ -50,7 +50,7 @@ void	move_up(t_game *game)
 	}
 	else if (game->map[coord[0] - 1][coord[1]] == 'E'
 			&& game->collectibles == 0)
-		close_game(game);
+		get_exit_up(game, coord);
 	game->moves += 1;
 	draw_screen(game);
 	draw_cointer(game);
@@ -79,7 +79,7 @@ void	move_down(t_game *game)
 	}
 	else if (game->map[coord[0] + 1][coord[1]] == 'E'
 			&& game->collectibles == 0)
-		close_game(game);
+		get_exit_down(game, coord);
 	game->moves += 1;
 	draw_screen(game);
 	draw_cointer(game);
@@ -108,7 +108,7 @@ void	move_left(t_game *game)
 	}
 	else if (game->map[coord[0]][coord[1] - 1] == 'E'
 			&& game->collectibles == 0)
-		close_game(game);
+		get_exit_left(game, coord);
 	game->moves += 1;
 	draw_screen(game);
 	draw_cointer(game);
@@ -137,7 +137,7 @@ void	move_right(t_game *game)
 	}
 	else if (game->map[coord[0]][coord[1] + 1] == 'E'
 			&& game->collectibles == 0)
-		close_game(game);
+		get_exit_right(game, coord);
 	game->moves += 1;
 	draw_screen(game);
 	draw_cointer(game);

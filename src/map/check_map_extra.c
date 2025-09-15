@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 19:22:58 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 23:01:03 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/15 14:32:13 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ int	check_map(char **map)
 {
 	if (!map)
 		return (-1);
-	if (!check_format(map))
+	if (!check_size_window(map))
+		return (FALSE);
+	else if (!check_format(map))
 		return (FALSE);
 	else if (!check_valid_items(map))
 		return (FALSE);
@@ -68,4 +70,34 @@ int	check_map(char **map)
 	else if (!check_path(map))
 		return (FALSE);
 	return (TRUE);
+}
+
+int	check_size_window(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			j++;
+			if (j > 40)
+				return (size_error(), FALSE);
+		}
+		i++;
+		if (i > 22)
+			return (size_error(), FALSE);
+	}
+	return (TRUE);
+}
+
+void	size_error(void)
+{
+	char	*error;
+
+	error = "The map exceeds the screen size\n";
+	put_error(error);
 }

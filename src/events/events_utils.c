@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:11:39 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/15 12:25:11 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/15 13:45:08 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,14 @@ void	draw_cointer(t_game *game)
 	char	*msg;
 
 	num = ft_itoa(game->moves);
+	if (!num)
+		return ;
 	msg = ft_strjoin("movements: ", num);
+	if (!msg)
+	{
+		free(num);
+		return ;
+	}
 	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFF00, msg);
 	write(1, "movements: ", 11);
 	write(1, num, ft_strlen(num));

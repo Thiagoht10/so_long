@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 18:39:01 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/12 19:49:28 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:03:06 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
-	int		width;
-	int		height;
+	long	width;
+	long	height;
 	void	*img_wall;
 	void	*img_floor;
 	void	*img_collect;
@@ -112,4 +112,8 @@ void		get_exit_right(t_game *game, int *coord);
 void		get_exit_down(t_game *game, int *coord);
 void		get_exit_left(t_game *game, int *coord);
 void		get_exit_up(t_game *game, int *coord);
+void		destroy_window(t_game *game);
+int			check_size_window(char **map);
+void		size_error(void);
+void		image_error(void);
 #endif

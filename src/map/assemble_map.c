@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 19:14:51 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/06 00:16:47 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:29:56 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*get_line(int fd)
 	len = ft_strlen_new(line);
 	output_line = malloc((len + 1) * sizeof(char));
 	if (!output_line)
-		return (NULL);
+		return (free(line), NULL);
 	ft_strlcpy(output_line, line, len + 1);
 	free(line);
 	return (output_line);
@@ -86,13 +86,15 @@ char	**make_map(char **argv)
 	data.fd = safe_open(argv);
 	data.size = count_lines_fd(argv);
 	if (data.size < 3)
-		return (format_error(), NULL);
+		return (close(data.fd), format_error(), NULL);
 	data.map = malloc((data.size + 1) * sizeof(char *));
 	if (!data.map)
 		return (close(data.fd), NULL);
 	while (data.i < data.size)
 	{
 		data.line = get_line(data.fd);
+		if (!data.line)
+			return (double_pointer_error(data.fd, data.map, data.line), NULL);
 		data.map[data.i] = malloc((ft_strlen(data.line) + 1) * sizeof(char));
 		if (!data.map[data.i])
 			return (double_pointer_error(data.fd, data.map, data.line), NULL);

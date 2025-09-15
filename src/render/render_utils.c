@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 15:05:42 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/12 19:58:27 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:47:42 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void	free_stack_game(t_game *game)
 {
 	if (!game)
 		return ;
-	free_all_arr(game->map);
-	free(game->mlx);
+	if (game->map)
+		free_all_arr(game->map);
+	if (game->mlx)
+		free(game->mlx);
 	free(game);
 }
 

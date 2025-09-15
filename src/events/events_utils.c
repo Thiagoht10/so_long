@@ -6,7 +6,7 @@
 /*   By: thde-sou <thde-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 18:11:39 by thde-sou          #+#    #+#             */
-/*   Updated: 2025/09/12 21:04:44 by thde-sou         ###   ########.fr       */
+/*   Updated: 2025/09/15 12:25:11 by thde-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	loop_handler(t_game *game)
 {
 	if (game->player_on_exit)
 	{
-		if (timestamp_ms() - game->start_time >= 200)
+		if (timestamp_ms() - game->start_time >= 125)
 			close_game(game);
 	}
 	return (0);
